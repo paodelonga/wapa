@@ -1,0 +1,11 @@
+#!/usr/bin/env fish
+
+set --local wallpapers_path "./Wallpapers/"
+set --local file_target "./README.md"
+
+for file in (ls $wallpapers_path | sort)
+    echo "" >> "$file_target"
+    echo "| $file |" >> "$file_target"
+    echo "| :---: |" >> "$file_target"
+    echo "| ![$file]($wallpapers_path$file)" >> "$file_target"
+end
