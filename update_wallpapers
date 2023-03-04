@@ -1,0 +1,28 @@
+#!/usr/bin/env fish
+
+cp "./.README_TEMPLATE" "./README.md"
+
+for theme in (ls "./themes/")
+    if count (ls "./themes/$theme")
+        echo -e "" >>"./README.md"
+        echo -e "<details>" >>"./README.md"
+        echo -e "   <summary> $theme </summary>" >>"./README.md"
+        echo -e "" >>"./README.md"
+
+        if test -e "./themes/$theme/preview.png"
+            echo -e "   | Preview |" >>"./README.md"
+            echo -e "   | :---: |" >>"./README.md"
+            echo -e "   | ![Preview](./themes/$theme/preview.png) |" >>"./README.md"
+            echo -e "" >>"./README.md"
+        end
+
+        for wallpaper in (ls "./themes/$theme" -I "preview.png")
+            echo -e "   | $wallpaper |" >>"./README.md"
+            echo -e "   | :---: |" >>"./README.md"
+            echo -e "   | ![$wallpaper](./themes/$theme/$wallpaper) |" >>"./README.md"
+            echo -e "" >>"./README.md"
+        end
+
+        echo -e "</details>" >>"./README.md"
+    end
+end
