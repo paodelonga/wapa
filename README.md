@@ -12,4 +12,4 @@
 
 | Sisifo |
 | :---:
-| ![Image](./themes/Sisifo/default.png) |
+| ![Image](./themes/Sisifo/preview.png) |
